@@ -26,7 +26,6 @@ body {
 header {
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
@@ -117,24 +116,73 @@ nav ul li a:hover {
     box-shadow: 0 10px 30px var(--shadow-color);
     position: relative;
     width: 100%;
-    display: grid;
-    grid-template-columns: 70% 30%;
     gap: 2rem;
 }
 
 .upload-area {
+    position: relative;
     width: 100%;
-    margin-bottom: 0;
-    height: 70vh;
+    transition: all 0.3s ease;
+}
+
+.upload-area.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: var(--background-color);
+    padding: 20px;
+}
+
+.upload-area.fullscreen .background-options {
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    width: 87px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.fullscreen-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fullscreen-btn:hover {
+    background: white;
+    transform: scale(1.05);
+}
+
+.fullscreen-btn svg {
+    display: block;
+}
+
+/* Adjust preview container in fullscreen mode */
+.upload-area.fullscreen .preview-container {
+    height: calc(100vh - 150px);
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .background-options {
-    width: 100%;
+    /* width: 80px; */
 }
 
 .preview-container {
     position: relative !important;
-    min-height: 500px;
+    height: calc(100vh - 150px);
     border: 2px dashed var(--border-color);
     overflow: hidden;
     background: var(--background-color);
@@ -164,7 +212,7 @@ nav ul li a:hover {
 }
 
 
-/* Aynalama efekti ile gölge */
+/* Aynalama efekti ile gÃ¶lge */
 #processedImage::after {
     content: '';
     position: absolute;
@@ -175,8 +223,8 @@ nav ul li a:hover {
     background: inherit;
     background-size: cover;
     transform: scaleY(-1); /* Dikey aynalama */
-    opacity: 0.3; /* Gölge opaklığı */
-    filter: blur(4px); /* Hafif bulanıklık */
+    opacity: 0.3; /* GÃ¶lge opaklÄ±ÄŸÄ± */
+    filter: blur(4px); /* Hafif bulanÄ±klÄ±k */
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 10%, transparent);
     -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 10%, transparent);
     pointer-events: none;
@@ -360,7 +408,7 @@ nav ul li a:hover {
 
 /* Category dropdown */
 .category-dropdown {
-    width: 200px;
+    width: 180px;
     padding: 0.8rem 1rem;
     border: 2px solid var(--border-color);
     border-radius: 8px;
@@ -369,6 +417,10 @@ nav ul li a:hover {
     background-color: white;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: absolute;
+    z-index: 9;
+    top: 1rem;
+    left: 1rem;
 }
 
 .category-dropdown:hover {
@@ -523,19 +575,15 @@ nav ul li a:hover {
 
 /* Debug styles */
 .background-options {
-    border: 1px solid #eee;
-    padding: 1rem;
-    margin-top: 1rem;
+    left: 1rem;
+    top: 5rem;
+    position: absolute;
+    overflow-y: scroll;
+    height: 600px;
+    width: 8%;
 }
 
 /* Pattern scroll styles */
-.pattern-scroll {
-    margin-top: 1.5rem;
-    background: var(--card-background);
-    border-radius: 12px;
-    padding: 1rem;
-    box-shadow: 0 4px 15px var(--shadow-color);
-}
 
 /* Custom scrollbar for webkit browsers */
 .pattern-container::-webkit-scrollbar {
@@ -556,12 +604,7 @@ nav ul li a:hover {
     background: var(--secondary-color);
 }
 
-.pattern-container {
-    gap: 1rem;
-    height: 300px;
-    overflow: scroll;
-    display: block !important;
-}
+
 
 .pattern-item {
     width: 70px;
@@ -623,19 +666,12 @@ nav ul li a:hover {
 
 /* Mobile optimization */
 @media (max-width: 768px) {
-    .pattern-scroll {
-        margin-top: 1rem;
-        padding: 0.5rem;
-    }
 
     .pattern-item {
         width: 100px;
         height: 100px;
     }
     
-    .pattern-container {
-        gap: 0.5rem;
-    }
 }
 
 /* For touch devices */

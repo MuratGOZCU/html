@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       reader.onload = (e) => {
         originalImage.src = e.target.result;
         originalImage.style.display = "block";
-        uploadPlaceholder.style.display = "none";
+        uploadPlaceholder.style.display = "block";
         processButton.disabled = false;
         processedImage.classList.add("hidden");
         previewContainer.style.border = "2px dashed #dfe6e9";
@@ -224,8 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       console.log("Created pattern item:", pattern.name);
     });
-
-    patternContainer.style.display = "flex";
   }
 
   // Category selection handling
@@ -419,4 +417,67 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   initTabs();
+
+  const uploadArea = document.getElementById("uploadArea");
+  const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+  fullscreenBtn.addEventListener("click", toggleFullscreen);
+
+  // Handle ESC key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && uploadArea.classList.contains("fullscreen")) {
+      exitFullscreen();
+    }
+  });
+
+  function toggleFullscreen() {
+    if (!uploadArea.classList.contains("fullscreen")) {
+      enterFullscreen();
+    } else {
+      exitFullscreen();
+    }
+  }
+
+  function enterFullscreen() {
+    uploadArea.classList.add("fullscreen");
+    document.body.style.overflow = "hidden";
+
+    if (uploadArea.requestFullscreen) {
+      uploadArea.requestFullscreen();
+    } else if (uploadArea.webkitRequestFullscreen) {
+      uploadArea.webkitRequestFullscreen();
+    } else if (uploadArea.msRequestFullscreen) {
+      uploadArea.msRequestFullscreen();
+    }
+  }
+
+  function exitFullscreen() {
+    uploadArea.classList.remove("fullscreen");
+    document.body.style.overflow = "";
+
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    }
+  }
+
+  // Handle fullscreen change events
+  document.addEventListener("fullscreenchange", handleFullscreenChange);
+  document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+  document.addEventListener("mozfullscreenchange", handleFullscreenChange);
+  document.addEventListener("MSFullscreenChange", handleFullscreenChange);
+
+  function handleFullscreenChange() {
+    if (
+      !document.fullscreenElement &&
+      !document.webkitFullscreenElement &&
+      !document.mozFullScreenElement &&
+      !document.msFullscreenElement
+    ) {
+      exitFullscreen();
+    }
+  }
 });
