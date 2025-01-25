@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Background Removal API - Remove image backgrounds instantly using our powerful REST API. High accuracy, fast processing, and easy integration.">
+    <meta name="keywords" content="background removal API, image processing API, remove background, AI background removal, REST API, image processing service">
+    <meta name="author" content="RemoveAPI xyz">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Free Background Removal API - Professional Image Processing">
+    <meta property="og:description" content="Remove image backgrounds instantly with our professional API. High accuracy and fast processing for developers.">
+    <meta property="og:image" content="http://remove.techstealth.xyz/og-image.jpg">
+    <meta property="og:url" content="http://remove.techstealth.xyz">
+    <meta name="twitter:card" content="ttp://remove.techstealth.xyz/og-image.jpg">
+    <title>Free Background Removal API - Professional Image Processing</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">RemoveAPI</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="https://rapidapi.com/muratgzc/api/remove-background-new-version">Documentation</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="demo">
+            <div class="demo-wrapper">
+                <div class="demo-header">
+                    <br>
+                    <br>
+                    <h2>Background Remover APi For Developer</h2>
+                </div>
+                
+                <div class="demo-container">
+                    <!-- Upload Area -->
+                    <div class="upload-area" id="uploadArea">
+                        <div class="preview-container">
+                            <img id="originalImage" class="preview-image" src="" alt="">
+                            <img id="processedImage" class="preview-image processed hidden" src="" alt="">
+                            
+                            <div class="upload-placeholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop your image here or</p>
+                                <label for="imageUpload" class="upload-button">
+                                    Choose File
+                                    <input type="file" id="imageUpload" accept="image/*" hidden>
+                                </label>
+                            </div>
+
+                            <div class="loading-effect hidden">
+                                <div class="magic-wand1">✨</div>
+                               
+                                <div class="loading-spinner"></div>
+                                <p>Removing background...</p>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button id="processButton" class="process-button" disabled>
+                                <i class="fas fa-magic"></i>
+                                Remove Background
+                            </button>
+                            <button id="downloadButton" class="download-button">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Background Options -->
+                    <div class="background-options">
+                        <h3>Choose Background</h3>
+                        <div class="category-selector">
+                            <select id="categorySelect" class="category-dropdown">
+                                <option value="all">All Backgrounds</option>
+                                <option value="kitchen">Kitchen</option>
+                                <option value="office">Office</option>
+                                <option value="nature">Nature</option>
+                                <option value="abstract">Abstract</option>
+                                <option value="solid">Solid Colors</option>
+                            </select>
+                        </div>
+                        <div class="pattern-scroll">
+                            <div class="pattern-container">
+                                <!-- Patterns will be dynamically added here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero">
+            <h1>Remove Background Instantly</h1>
+            <p class="subtitle">Professional Background Removal API for Your Applications</p>
+            
+        </section>
+
+        <section id="removal" class="removal">
+            <div class="workflow-container">
+                <div class="workflow-content">
+                    <div class="workflow-image">
+                        <div class="circle mint">
+                            Original
+                        </div>
+                        <div class="image-flow">
+                            <img src="images/people-1.jpg" width="100px" alt="Original image" class="flow-img">
+                            <img src="images/people-1-transparent2.jpg" width="100px" alt="Processed image" class="flow-img">
+                        </div>
+                        <div class="circle yellow">
+After AI                        </div>
+                        <div class="arrow-1"></div>
+                        <div class="arrow-2"></div>
+                    </div>
+                    <div class="workflow-text">
+                        <h2>Integrates with your Software Workflow</h2>
+                        <p>We've built tools and plugins for some of the most popular design programs, eCommerce sites and computer environments. To bring more digital efficiency to your own workflow, use our API!</p>
+                        <div class="workflow-links">
+                            <a href="https://rapidapi.com/muratgzc/api/remove-background-new-version" class="workflow-link">API Documentation →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="features-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="original">Original</button>
+                    <button class="tab-btn" data-tab="transparent">Transparent background</button>
+                    <button class="tab-btn" data-tab="newbg">New Background</button>
+                </div>
+                
+                <div class="tab-content active" id="original">
+                    <div class="possibilities-grid">
+                        <img src="images/prodcut-2.jpg" alt="Possibility 1">
+                        <img src="images/prodcut-2-transparent.jpg" alt="Possibility 2">
+                        <img src="images/prodcut-2-bg-2.jpg" alt="Possibility 3">
+                        <img src="images/product-endless-possibilitiess.jpg" alt="Possibility 4">
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="transparent">
+                    <div class="possibilities-grid">
+                        <img src="images/people-1.jpg" alt="Possibility 1">
+                        <img src="images/people-1-transparent2.jpg" alt="Possibility 2">
+                        <img src="images/people-skater-floor-fix.png" alt="Possibility 3">
+                        <img src="images/people-endless-possibilities.jpg" alt="Possibility 4">
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="newbg">
+                    <div class="possibilities-grid">
+                        <img src="images/cars-image1.png" alt="Possibility 1">
+                        <img src="images/cars-image2.png" alt="Possibility 2">
+                        <img src="images/cars-image3.png" alt="Possibility 3">
+                        <img src="images/cars-image4.png" alt="Possibility 4">
+                    </div>
+                </div>
+                
+               
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing">
+            <h2>Simple Pricing</h2>
+            <div class="pricing-cards">
+                <div class="price-card">
+                    <h3>Starter</h3>
+                    <div class="price">$10/month</div>
+                    <ul>
+                        <li>10,000 API calls</li>
+                        <li>Basic support</li>
+                        <li>24h response time</li>
+                    </ul>
+                    <a href="https://rapidapi.com/muratgzc/api/remove-background-new-version/pricing" class="buy-button">Buy Now</a>
+                </div>
+                <div class="price-card featured">
+                    <h3>Professional</h3>
+                    <div class="price">$39/month</div>
+                    <ul>
+                        <li>50,000 API calls</li>
+                        <li>Priority support</li>
+                        <li>6h response time</li>
+                    </ul>
+                    <a href="https://rapidapi.com/muratgzc/api/remove-background-new-version/pricing" class="buy-button">Buy Now</a>
+                </div>
+                <div class="price-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">$199/month</div>
+                    <ul>
+                        <li>250,000 API calls</li>
+                        <li>24/7 support</li>
+                        <li>Custom solutions</li>
+                    </ul>
+                    <button class="buy-button">Contact Us</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>RemoveAPI</h4>
+                <p>Professional background removal API service</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#docs">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: admin@techstealth.xyz</p>
+                <p>Phone: +90 (531) 697-0384</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 RemoveAPI. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+</body>
+</html>
